@@ -1,0 +1,71 @@
+// test_ocx_parament_array.odl : type library source for ActiveX Control project.
+
+// This file will be processed by the Make Type Library (mktyplib) tool to
+// produce the type library (test_ocx_parament_array.tlb) that will become a resource in
+// test_ocx_parament_array.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(EDE2254F-4DA8-4038-8E1B-9FE3DBDC77B5), version(1.0),
+  helpfile("test_ocx_parament_array.hlp"),
+  helpstring("test_ocx_parament_array ActiveX Control module"),
+  control ]
+library TEST_OCX_PARAMENT_ARRAYLib
+{
+	importlib(STDOLE_TLB);
+	importlib(STDTYPE_TLB);
+
+	//  Primary dispatch interface for CTest_ocx_parament_arrayCtrl
+
+	[ uuid(84696215-585E-4E84-A855-77DA7B82210A),
+	  helpstring("Dispatch interface for Test_ocx_parament_array Control"), hidden ]
+	dispinterface _DTest_ocx_parament_array
+	{
+		properties:
+			// NOTE - ClassWizard will maintain property information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_PROP(CTest_ocx_parament_arrayCtrl)
+			//}}AFX_ODL_PROP
+
+		methods:
+			// NOTE - ClassWizard will maintain method information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_METHOD(CTest_ocx_parament_arrayCtrl)
+			[id(1)] long Tests1(long* t1);
+			[id(2)] long TestVar(VARIANT* var);
+			//}}AFX_ODL_METHOD
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+	};
+
+	//  Event dispatch interface for CTest_ocx_parament_arrayCtrl
+
+	[ uuid(CD22AE8B-5CD6-492D-B3FD-A121FDF479E0),
+	  helpstring("Event interface for Test_ocx_parament_array Control") ]
+	dispinterface _DTest_ocx_parament_arrayEvents
+	{
+		properties:
+			//  Event interface has no properties
+
+		methods:
+			// NOTE - ClassWizard will maintain event information here.
+			//    Use extreme caution when editing this section.
+			//{{AFX_ODL_EVENT(CTest_ocx_parament_arrayCtrl)
+			//}}AFX_ODL_EVENT
+	};
+
+	//  Class information for CTest_ocx_parament_arrayCtrl
+
+	[ uuid(22586611-5918-47B5-9019-CE69237699E8),
+	  helpstring("Test_ocx_parament_array Control"), control ]
+	coclass Test_ocx_parament_array
+	{
+		[default] dispinterface _DTest_ocx_parament_array;
+		[default, source] dispinterface _DTest_ocx_parament_arrayEvents;
+	};
+
+
+	//{{AFX_APPEND_ODL}}
+	//}}AFX_APPEND_ODL}}
+};

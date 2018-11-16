@@ -1,0 +1,9 @@
+; test_ocx_parament_array.def : Declares the module parameters.
+
+LIBRARY      "TEST_OCX_PARAMENT_ARRAY.OCX"
+
+EXPORTS
+	DllCanUnloadNow     @1 PRIVATE
+	DllGetClassObject   @2 PRIVATE
+	DllRegisterServer   @3 PRIVATE
+	DllUnregisterServer @4 PRIVATE
