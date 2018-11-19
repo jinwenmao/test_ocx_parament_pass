@@ -47,6 +47,7 @@ protected:
 	//{{AFX_DISPATCH(CTest_ocx_parament_arrayCtrl)
 	afx_msg long Tests1(long FAR* t1);
 	afx_msg long TestVar(VARIANT FAR* var);
+	afx_msg long testSendVar(VARIANT FAR* sendv);
 	//}}AFX_DISPATCH
 	DECLARE_DISPATCH_MAP()
 
@@ -63,6 +64,7 @@ public:
 	//{{AFX_DISP_ID(CTest_ocx_parament_arrayCtrl)
 	dispidTests1 = 1L,
 	dispidTestVar = 2L,
+	dispidTestSendVar = 3L,
 	//}}AFX_DISP_ID
 	};
 };

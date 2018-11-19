@@ -5,6 +5,10 @@
 #include "Test_ocx_parament_arrayCtl.h"
 #include "Test_ocx_parament_arrayPpg.h"
 #include <COMUTIL.H>
+#include <deque>
+//#include <COMUTIL.H>
+using namespace std;
+#pragma comment(lib, "comsupp.lib")  
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -35,6 +39,7 @@ BEGIN_DISPATCH_MAP(CTest_ocx_parament_arrayCtrl, COleControl)
 	//{{AFX_DISPATCH_MAP(CTest_ocx_parament_arrayCtrl)
 	DISP_FUNCTION(CTest_ocx_parament_arrayCtrl, "Tests1", Tests1, VT_I4, VTS_PI4)
 	DISP_FUNCTION(CTest_ocx_parament_arrayCtrl, "TestVar", TestVar, VT_I4, VTS_PVARIANT)
+	DISP_FUNCTION(CTest_ocx_parament_arrayCtrl, "testSendVar", testSendVar, VT_I4, VTS_PVARIANT)
 	//}}AFX_DISPATCH_MAP
 	DISP_FUNCTION_ID(CTest_ocx_parament_arrayCtrl, "AboutBox", DISPID_ABOUTBOX, AboutBox, VT_EMPTY, VTS_NONE)
 END_DISPATCH_MAP()
@@ -234,6 +239,38 @@ var->parray = psa;
 // 来源：CSDN 
 // 原文：https://blog.csdn.net/boise/article/details/52400533 
 // 版权声明：本文为博主原创文章，转载请附上博文链接！
+
+	return 0;
+}
+
+long CTest_ocx_parament_arrayCtrl::testSendVar(VARIANT FAR* sendv) 
+{
+	// TODO: Add your dispatch handler code here
+sendv->vt;
+sendv->parray->cbElements;
+std::deque<int> lde;
+			long i = 0;
+			int ele_count = sendv->parray->rgsabound[0].cElements;
+			int index_start =  sendv->parray->rgsabound[0].lLbound;
+		//	int iSize =  +;
+			for (i = index_start; i < ele_count+ index_start; i++)
+			{
+									//	iDime[1] = j;
+				long rg = 0;
+ 
+//					int d = -1;
+//					HRESULT hrg = ::SafeArrayGetElement(sendv->parray, &i, &d);
+
+										BSTR sb = NULL;
+					HRESULT hrg = ::SafeArrayGetElement(sendv->parray, &i, &sb);
+
+				//	_bstr_t b = sb;  
+				//	char* lpszText2 = b; 
+					char* lpszText2 = _com_util::ConvertBSTRToString(sb);  
+SysFreeString(sb); // 用完释放  
+delete[] lpszText2;  
+
+			}
 
 	return 0;
 }

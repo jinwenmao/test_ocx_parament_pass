@@ -34,6 +34,7 @@ library TEST_OCX_PARAMENT_ARRAYLib
 			//{{AFX_ODL_METHOD(CTest_ocx_parament_arrayCtrl)
 			[id(1)] long Tests1(long* t1);
 			[id(2)] long TestVar(VARIANT* var);
+			[id(3)] long testSendVar(VARIANT* sendv);
 			//}}AFX_ODL_METHOD
 
 			[id(DISPID_ABOUTBOX)] void AboutBox();

@@ -39,5 +39,19 @@ namespace WindowsFormsApplication1
            
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+             int count = 5;
+           // Int32[] tt = new Int32[count];
+             string[] tt = new string[count];
+            for (int i = 0; i < count;i++ )
+            {
+                //tt[i] = i+1;
+                tt[i] = (i+100).ToString();
+            }
+            object x = new System.Runtime.InteropServices.VariantWrapper(tt);
+            axTest_ocx_parament_array1.testSendVar(ref x);
+        }
     }
 }
