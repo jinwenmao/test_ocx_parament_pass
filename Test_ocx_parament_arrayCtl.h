@@ -48,6 +48,7 @@ protected:
 	afx_msg long Tests1(long FAR* t1);
 	afx_msg long TestVar(VARIANT FAR* var);
 	afx_msg long testSendVar(VARIANT FAR* sendv);
+	afx_msg long testnameidpairv(VARIANT FAR* aname, VARIANT FAR* aid);
 	//}}AFX_DISPATCH
 	DECLARE_DISPATCH_MAP()
 
@@ -65,6 +66,7 @@ public:
 	dispidTests1 = 1L,
 	dispidTestVar = 2L,
 	dispidTestSendVar = 3L,
+	dispidTestnameidpairv = 4L,
 	//}}AFX_DISP_ID
 	};
 };

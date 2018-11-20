@@ -33,6 +33,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.axTest_ocx_parament_array1 = new AxTEST_OCX_PARAMENT_ARRAYLib.AxTest_ocx_parament_array();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.axTest_ocx_parament_array1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,11 +76,22 @@
             this.axTest_ocx_parament_array1.Size = new System.Drawing.Size(100, 50);
             this.axTest_ocx_parament_array1.TabIndex = 5;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(38, 145);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(128, 23);
+            this.button4.TabIndex = 6;
+            this.button4.Text = "t_pair_transfer";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.axTest_ocx_parament_array1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -97,6 +109,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private AxTEST_OCX_PARAMENT_ARRAYLib.AxTest_ocx_parament_array axTest_ocx_parament_array1;
+        private System.Windows.Forms.Button button4;
     }
 }
 

@@ -24,6 +24,7 @@ ImplementationFile=Test_ocx_parament_arrayCtl.cpp
 Filter=W
 BaseClass=COleControl
 VirtualFilter=wWC
+LastObject=CTest_ocx_parament_arrayCtrl
 
 [CLS:CTest_ocx_parament_arrayPropPage]
 Type=0

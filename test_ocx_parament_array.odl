@@ -35,6 +35,7 @@ library TEST_OCX_PARAMENT_ARRAYLib
 			[id(1)] long Tests1(long* t1);
 			[id(2)] long TestVar(VARIANT* var);
 			[id(3)] long testSendVar(VARIANT* sendv);
+			[id(4)] long testnameidpairv(VARIANT* aname, VARIANT* aid);
 			//}}AFX_ODL_METHOD
 
 			[id(DISPID_ABOUTBOX)] void AboutBox();

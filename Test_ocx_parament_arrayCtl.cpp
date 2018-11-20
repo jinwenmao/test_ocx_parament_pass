@@ -40,6 +40,7 @@ BEGIN_DISPATCH_MAP(CTest_ocx_parament_arrayCtrl, COleControl)
 	DISP_FUNCTION(CTest_ocx_parament_arrayCtrl, "Tests1", Tests1, VT_I4, VTS_PI4)
 	DISP_FUNCTION(CTest_ocx_parament_arrayCtrl, "TestVar", TestVar, VT_I4, VTS_PVARIANT)
 	DISP_FUNCTION(CTest_ocx_parament_arrayCtrl, "testSendVar", testSendVar, VT_I4, VTS_PVARIANT)
+	DISP_FUNCTION(CTest_ocx_parament_arrayCtrl, "testnameidpairv", testnameidpairv, VT_I4, VTS_PVARIANT VTS_PVARIANT)
 	//}}AFX_DISPATCH_MAP
 	DISP_FUNCTION_ID(CTest_ocx_parament_arrayCtrl, "AboutBox", DISPID_ABOUTBOX, AboutBox, VT_EMPTY, VTS_NONE)
 END_DISPATCH_MAP()
@@ -233,6 +234,8 @@ v.lVal = i+100;
 }
 
 var->vt = VT_ARRAY|VT_VARIANT; //数组类型
+//can not use next type,cs client error
+//var->vt = VT_ARRAY|VT_I4; //数组类型
 var->parray = psa;
 //--------------------- 
 // 作者：bjgxjob 
@@ -267,6 +270,67 @@ std::deque<int> lde;
 				//	_bstr_t b = sb;  
 				//	char* lpszText2 = b; 
 					char* lpszText2 = _com_util::ConvertBSTRToString(sb);  
+					OutputDebugString(lpszText2);
+					OutputDebugString("\n");
+SysFreeString(sb); // 用完释放  
+delete[] lpszText2;  
+
+			}
+
+	return 0;
+}
+
+long CTest_ocx_parament_arrayCtrl::testnameidpairv(VARIANT FAR* aname, VARIANT FAR* aid) 
+{
+		long i = 0;
+		long j = 0;
+			int ele_count_n = aname->parray->rgsabound[0].cElements;
+			int index_start_n =  aname->parray->rgsabound[0].lLbound;
+
+			int ele_count_id = aid->parray->rgsabound[0].cElements;
+			int index_start_id =  aid->parray->rgsabound[0].lLbound;
+
+			if (ele_count_n != ele_count_id)
+			{
+				return -1;
+			}
+
+			if(!(aid->vt  && VT_ARRAY))
+			{
+				return -1;
+			}
+			if (!(aid->vt && VT_I4))
+			{
+				return -1;
+			}
+
+			if(!(aname->vt && VT_ARRAY))
+			{
+				return -1;
+			}
+			if (!(aname->vt && VT_BSTR))
+			{
+				return -1;
+			}
+
+			for (i = index_start_n,j= index_start_id; i < ele_count_n+ index_start_n; i++,j++)
+			{
+				char str[MAX_PATH];
+									//	iDime[1] = j;
+				//long rg = 0;
+ 
+					int d = -1;
+					HRESULT hrg = ::SafeArrayGetElement(aid->parray, &i, &d);
+
+										BSTR sb = NULL;
+					 hrg = ::SafeArrayGetElement(aname->parray, &i, &sb);
+
+				//	_bstr_t b = sb;  
+				//	char* lpszText2 = b; 
+					char* lpszText2 = _com_util::ConvertBSTRToString(sb);  
+					sprintf(str,"%d   %s\n",d,lpszText2);
+					OutputDebugString(str);
+					//OutputDebugString("\n");
 SysFreeString(sb); // 用完释放  
 delete[] lpszText2;  
 
