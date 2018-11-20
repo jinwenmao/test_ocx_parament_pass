@@ -211,6 +211,7 @@ long CTest_ocx_parament_arrayCtrl::TestVar(VARIANT FAR* var)
 {
 	// TODO: Add your dispatch handler code here
 long a = 123;
+//return -1;
 //_variant_t lVal(a);
 //var->parray = _variant_t.parray;
 //var =_variant_t.parray;

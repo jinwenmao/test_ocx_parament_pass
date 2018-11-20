@@ -25,11 +25,19 @@ namespace WindowsFormsApplication1
         private void button2_Click(object sender, EventArgs e)
         {
             int count = 5;
-            Int32[] tt = new Int32[count];
-            for (int i = 0; i < count;i++ )
-            {
-                tt[i] = i;
-            }
+            //Int32[] tt = new Int32[count];
+            //for (int i = 0; i < count;i++ )
+            //{
+            //    tt[i] = i;
+            //}
+
+            //object[] tt = new object[count];
+            object tt = null;
+            //for (int i = 0; i < count;i++ )
+            //{
+            //    tt[i] = i;
+            //}
+
             object x = new System.Runtime.InteropServices.VariantWrapper(tt);
            // //object[] x = new object[20];
            //// object x = tt;
